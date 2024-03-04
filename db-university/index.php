@@ -74,3 +74,48 @@ FROM `departments`
 SELECT * 
 FROM `teachers`
 WHERE `phone` IS NOT NULL;
+
+
+
+
+
+
+// EX QUERY CON GROUP BY
+
+✅// 1. Contare quanti iscritti ci sono stati ogni anno
+✅// 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+✅// 3. Calcolare la media dei voti di ogni appello d'esame
+✅// 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+
+
+
+
+
+/*1. Contare quanti iscritti ci sono stati ogni anno */
+
+SELECT registration_number, COUNT(name) AS number_of_degrees
+FROM `students`
+GROUP BY registration_number;
+
+
+
+/* 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio */
+
+SELECT COUNT(id), office_address
+FROM `teachers`
+GROUP BY office_address;
+
+/*3. Calcolare la media dei voti di ogni appello d'esame */
+
+SELECT student_id, AVG(vote) AS vote_media 
+FROM `exam_student`
+GROUP BY student_id;
+
+
+
+/*4. Contare quanti corsi di laurea ci sono per ogni dipartimento */
+
+SELECT department_id, COUNT(name) AS number_of_degrees
+FROM `degrees`
+GROUP BY department_id;
