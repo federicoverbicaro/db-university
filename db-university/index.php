@@ -119,3 +119,6 @@ GROUP BY student_id;
 SELECT department_id, COUNT(name) AS number_of_degrees
 FROM `degrees`
 GROUP BY department_id;
+
+
+
